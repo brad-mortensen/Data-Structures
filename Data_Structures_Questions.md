@@ -3,11 +3,11 @@ Answer the following questions for each of the data structures you implemented a
 ## Queue
 
 1. What is the runtime complexity of `enqueue`?
-
+  O(n) Linear Time -- Since we're using the .insert() method which has to account for updating all indicies of the list.
 2. What is the runtime complexity of `dequeue`?
-
+  O(n) Linear Time -- Dequeue is using the .pop() method which has to account for updating all indicies of the list
 3. What is the runtime complexity of `len`? 
-  O(1) -- Since it is just reading the size propery, it is constant time.
+  O(1) Constant Time -- Since it is just reading the size propery, it is constant time.
 
 ## Binary Search Tree
 

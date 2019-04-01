@@ -44,24 +44,41 @@ class DoublyLinkedList:
         return self.length
 
     def add_to_head(self, value):
-        pass
+        new_node = ListNode(value)
+        if not self.head:
+            new_node.prev = None
+            new_node.prev = None
+            self.head = new_node
+            self.tail = new_node
+            self.length += 1
+        else:
+            current = self.head
+            current.prev = new_node
+            new_node.prev = None
+            new_node.next = current
+            self.head = new_node
+            self.length += 1    
+
+
 
     def remove_from_head(self):
         pass
 
     def add_to_tail(self, value):
-        if not self.head:
-            new_node = ListNode(value)
+        new_node = ListNode(value)
+        if not self.head:            
             new_node.prev = None
             self.head = new_node
             self.tail = new_node
+            self.length += 1
         else:
-            new_node = ListNode(value)
             current = self.tail
             current.next = new_node
             new_node.prev = current
             new_node.next = None
             self.tail = new_node
+            self.length += 1
+
 
 
     def remove_from_tail(self):
@@ -87,8 +104,11 @@ class DoublyLinkedList:
 
 
 dll = DoublyLinkedList()
+dll.add_to_head('candy')
 dll.add_to_tail(1)
 dll.add_to_tail(2)
 dll.add_to_tail(3)
+dll.add_to_head('sketi')
 dll.add_to_tail(4)
 dll.print_list()
+print(f'List Length: {dll.length}')

@@ -6,7 +6,8 @@ Answer the following questions for each of the data structures you implemented a
 
 2. What is the runtime complexity of `dequeue`?
 
-3. What is the runtime complexity of `len`?
+3. What is the runtime complexity of `len`? 
+  O(1) -- Since it is just reading the size propery, it is constant time.
 
 ## Binary Search Tree
 

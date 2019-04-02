@@ -54,4 +54,4 @@ Answer the following questions for each of the data structures you implemented a
 10. What is the runtime complexity of `DoublyLinkedList.delete`?
   O(1) Constant Time
     a. Compare the runtime of the doubly linked list's `delete` method with the worst-case runtime of the JS `Array.splice` method. Which method generally performs better?
-      Array.splice takes Linear time since it has to iterate to reassign indicies. 
+      Array.splice takes Linear time since it has to iterate through the array to reassign indicies. 

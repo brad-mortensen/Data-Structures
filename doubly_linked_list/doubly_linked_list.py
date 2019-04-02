@@ -66,10 +66,12 @@ class DoublyLinkedList:
         if not self.head:
             return None
         else:
+            old_head = self.head
             new_head = self.head.next
             self.head.delete()
             self.head = new_head
             self.length -= 1
+            return old_head
 
     def add_to_tail(self, value):
         node = ListNode(value)
@@ -86,10 +88,12 @@ class DoublyLinkedList:
         if not self.head:
             return None
         else:
+            old_tail = self.tail
             new_tail = self.tail.prev
             self.tail.delete()
             self.tail = new_tail
             self.length -= 1
+            return old_tail
 
     def move_to_front(self, node):
         current = self.head
@@ -118,9 +122,9 @@ class DoublyLinkedList:
         return None
 
     def delete(self, node):
-        current = self.head
         if not self.head or not self.tail:
             return None
+        current = self.head
         while current:
             if current.value == node:
                 current.delete()
@@ -142,17 +146,12 @@ class DoublyLinkedList:
             print(current.value, end=" ", flush=True)
             current = current.next
 
+
 dll = DoublyLinkedList()
 dll.add_to_tail(1)
-dll.add_to_tail(2)
-dll.add_to_head(47)
-dll.move_to_front(2)
 dll.print_list()
 print('\n')
-dll.move_to_end(2)
-dll.delete(1)
+dll.remove_from_head()
+dll.add_to_head(6)
 dll.print_list()
-print(f'Max: {dll.get_max()}')
-print('\n')
-print(f'List Length: {dll.length}')
 print('\n')

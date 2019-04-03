@@ -8,7 +8,7 @@ class BinarySearchTree:
         # Checking first if input is larger that parent
         # node and self.right is vacant.
         # If so, call BST recursivley for right side.
-        if value > self.value and not self.right:
+        if value >= self.value and not self.right:
             self.right = BinarySearchTree(value)
         # Do the same for the left side.
         if value < self.value and not self.left:
@@ -37,6 +37,12 @@ class BinarySearchTree:
             return self.left.contains(target)
 
     def get_max(self):
+        if self.right:
+            return self.right.get_max()
+        else:
+            return self.value
+
+    def for_each(self, cb):
         maximum = -999999
         if self.value > maximum:
             maximum = self.value
@@ -46,5 +52,21 @@ class BinarySearchTree:
             return self.right.get_max()
         return maximum
 
-    def for_each(self, cb):
-        pass
+
+bst = BinarySearchTree(5)
+bst.insert(10)
+bst.insert(7)
+bst.insert(3)
+bst.insert(77)
+bst.insert(3)
+
+arr = []
+
+
+def cb(x):
+    return arr.append(x)
+
+
+print(f'Array Before: {arr}')
+bst.for_each(cb)
+print(f'Array After: {arr}')

@@ -10,10 +10,10 @@ class Queue:
         self.size += 1
 
     def dequeue(self):
-        if self.size == 0: return None
+        if self.size == 0:
+            return None
         self.size -= 1
         return self.storage.pop()
-    
 
     def len(self):
         return self.size

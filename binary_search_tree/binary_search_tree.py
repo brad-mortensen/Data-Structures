@@ -37,12 +37,6 @@ class BinarySearchTree:
             return self.left.contains(target)
 
     def get_max(self):
-        if self.right:
-            return self.right.get_max()
-        else:
-            return self.value
-
-    def for_each(self, cb):
         maximum = -999999
         if self.value > maximum:
             maximum = self.value
@@ -51,6 +45,13 @@ class BinarySearchTree:
         while self.right:
             return self.right.get_max()
         return maximum
+
+    def for_each(self, cb):
+        cb(self.value)
+        if self.right:
+            self.right.for_each(cb)
+        if self.left:
+            self.left.for_each(cb)
 
 
 bst = BinarySearchTree(5)

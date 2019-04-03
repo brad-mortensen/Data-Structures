@@ -6,7 +6,7 @@ class BinarySearchTree:
 
     def insert(self, value):
         # Checking first if input is larger that parent
-        # node and #self.right is vacant.
+        # node and self.right is vacant.
         # If so, call BST recursivley for right side.
         if value > self.value and not self.right:
             self.right = BinarySearchTree(value)

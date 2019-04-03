@@ -8,7 +8,7 @@ class BinarySearchTree:
         # Checking first if input is larger that parent
         # node and self.right is vacant.
         # If so, call BST recursivley for right side.
-        if value >= self.value and not self.right:
+        if value > self.value and not self.right:
             self.right = BinarySearchTree(value)
         # Do the same for the left side.
         if value < self.value and not self.left:

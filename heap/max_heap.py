@@ -7,7 +7,12 @@ class Heap:
         self._bubble_up(len(self.storage)-1)
 
     def delete(self):
-        pass
+        if self.get_size() == 1:
+            return self.storage.pop()
+        top_node = self.storage[0]
+        self.storage[0] = self.storage.pop()
+        self._sift_down(0)
+        return top_node
 
     def get_max(self):
         if self.storage:
@@ -28,17 +33,16 @@ class Heap:
         self.storage[i], self.storage[j] = self.storage[j], self.storage[i]
 
     def _sift_down(self, index):
-        l_child = index*2+1
-        r_child = index*2+2
-        largest = index
-        if len(self.heap) > left and self.heap[largest] < self.heap[left]:
-            largest = left
-        if len(self.heap) > right and self.heap[largest] < self.heap[right]:
-            largest = right
-        if largest != index:
-            self._swap(index, largest)
-            self._sift_down(largest)
-
+        l = index*2+1
+        r = index*2+2
+        top = index
+        if self.get_size() > l and self.storage[top] < self.storage[l]:
+            top = l
+        if self.get_size() > r and self.storage[top] < self.storage[r]:
+            top = r
+        if top != index:
+            self._swap(index, top)
+            self._sift_down(top)
 
 
 my_heap = Heap()
